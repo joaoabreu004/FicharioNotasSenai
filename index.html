@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- FONT GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- BOOTSTRAP -->
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <title>Fichário de Notas</title>
+</head>
+<body>
+    <main>
+        <section class="binder">
+            <div class="binder_titulo"><p>CONTROLE DE NOTAS - TURMA DS NOITE</p></div>   
+            <table class="table">
+                <thead>
+                  <tr id="binderHead">
+                    <th class="bindeSubHead" scope="col">#</th>
+                    <th class="bindeSubHead" scope="col">Nome</th>
+                    <th class="bindeSubHead" scope="col">Nota 1</th>
+                    <th class="bindeSubHead" scope="col">Nota 2</th>
+                    <th class="bindeSubHead" scope="col">Nota 3</th>
+                    <th class="bindeSubHead" scope="col">Nota 4</th>
+                    <th class="bindeSubHead" scope="col">Média</th>
+                    <th class="bindeSubHead" scope="col">Situação</th>
+                </thead>
+                <tbody id="binderBody">
+                  <!-- <tr class="binder_student">
+                    <th>1</th>
+                    <th scope="row">João Vitor </th>
+                    <th>2.5</th>
+                    <th>7.7</th>
+                    <th>9.5</th>
+                    <th>10</th>
+                    <th>9.5</th>
+                    <th>APROVADO</th>
+                  </tr> -->
+                  <tr class="blinder_student">
+                    <th id="ordenacao">1</th>
+                    <th scope="row"><input type="text" class="input"></th>
+                    <th><input type="number" class="nota-1 input"></th>
+                    <th><input type="number" class="nota-2 input"></th>
+                    <th><input type="number" class="nota-3 input"></th>
+                    <th><input type="number" class="nota-4 input"></th>
+                    <th class="media">#</th>
+                    <th class="situacao">#</th>
+                  </tr>
+                </tbody>
+              </table>
+        </section>
+
+        <section class="button">
+            <button type="submit" id="addStudent">ADICIONAR ALUNO</button>
+            <button type="submit">ADICIONAR NOTA</button>
+            <button type="submit">REMOVER NOTA</button>
+            <button type="submit" id="verify" onclick="verificar()">VERIFICAR</button>
+        </section>
+    </main>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+const btnAdd = document.querySelector('#addStudent');
+const btnVerifica = document.querySelector('#verify');
+
+
+var ordemNumerica = document.querySelector('#ordenacao')
+var outputMedia = document.querySelector(".media"); 
+var outputSituacao = document.querySelector('.situacao')
+
+
+
+//VARIÁVEIS AUXILIARES
+var num = 2
+var somarNotas = 0 
+var media = 0 
+
+
+
+
+
+
+btnAdd.addEventListener('click', () => {
+    criarAluno();
+})
+
+
+
+var lista = []
+var listaNum = []
+
+
+function verificar(){
+    var nota1 = document.querySelector(".nota-1").value;
+    var nota2 = document.querySelector(".nota-2").value;
+    var nota3 = document.querySelector(".nota-3").value;
+    var nota4 = document.querySelector(".nota-4").value;
+   
+    
+    lista.push(nota1, nota2, nota3, nota4);
+    listaNum.length = 0
+
+    for(let i = 0; i < lista.length; i++){
+        listaNum.push(parseFloat(lista[i]));
+    }
+    
+    console.log(lista)
+    console.log(listaNum)
+    //SOMAR NOTAS 
+    for(let i = 0; i < listaNum.length; i++){
+        somarNotas += listaNum[i];
+    }
+            
+    // MÉDIA
+    media = somarNotas / listaNum.length;   
+
+    outputMedia.innerHTML = media;
+
+    situacao(media);
+
+    //ZERANDO VARIÁVEIS
+    media = 0; 
+    somarNotas = 0; 
+    listaNum.length = 0; 
+    lista.length = 0 
+}
+
+
+
+function situacao(media){
+    if(media < 5.0){
+       outputSituacao.innerHTML = "REPROVADO"
+       outputSituacao.classList.add("reprovado")
+       outputSituacao.classList.remove("recuperacao", "aprovado")
+       
+    }else if(media >= 5.0 && media < 8.0){
+        outputSituacao.innerHTML = "RECUPERAÇÃO"
+        outputSituacao.classList.add("recuperacao")
+        outputSituacao.classList.remove("reprovado", "aprovado")
+    } else if (media >= 8){
+        outputSituacao.innerHTML = "APROVADO"
+        outputSituacao.classList.add("aprovado")
+        outputSituacao.classList.remove("recuperacao", "reprovado")
+
+    }
+}
+
+
+
+
+//ARROW FUNCTION - CRIAR ALUNO 
+const criarAluno = () => {
+    const item = document.createElement('tr');
+    item.classList.add("blinder_student");
+    item.innerHTML = `
+        <th id="ordenacao">${num++}</th>
+        <th scope="row"><input type="text" class="input"></th>
+        <th><input type="number" class="nota-1 input"></th>
+        <th><input type="number" class="nota-2 input"></th>
+        <th><input type="number" class="nota-3 input"></th>
+        <th><input type="number" class="nota-4 input"></th>
+        <th class="media">#</th>
+        <th class="situacao">#</th>
+    `
+    document.getElementById('binderBody').appendChild(item); 
+}
+
+
+
+
+// PEGAR AS NOTAS COMO NÚMERO.  
+// DIVDIR E MOSTRAR MÉDIA E SITUÇÃO 
+// REPLICAR ISSO PARA OS DEMAIS ALUNOS
+
+
