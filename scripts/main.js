@@ -3,19 +3,14 @@ const btnVerifica = document.querySelector('#verify');
 
 
 var ordemNumerica = document.querySelector('#ordenacao')
-var outputMedia = document.querySelector(".media"); 
-var outputSituacao = document.querySelector('.situacao')
 
+var linhaAluno = []
 
 
 //VARIÁVEIS AUXILIARES
-var num = 2
+var num = 1
 var somarNotas = 0 
 var media = 0 
-
-
-
-
 
 
 btnAdd.addEventListener('click', () => {
@@ -28,7 +23,33 @@ var lista = []
 var listaNum = []
 
 
+
+//ARROW FUNCTION - CRIAR ALUNO 
+const criarAluno = () => {
+    const item = document.createElement('tr');
+    item.classList.add("blinder_student");
+    item.innerHTML = `
+        <th id="ordenacao">${num++}</th>
+        <th scope="row"><input type="text" class="input"></th>
+        <th><input type="number" class="nota-1 input"></th>
+        <th><input type="number" class="nota-2 input"></th>
+        <th><input type="number" class="nota-3 input"></th>
+        <th><input type="number" class="nota-4 input"></th>
+        <th class="media">#</th>
+        <th class="situacao">#</th>
+    `
+    document.getElementById('binderBody').appendChild(item); 
+    linhaAluno.push(item)
+    console.log(linhaAluno)
+
+  
+
+}
+
+
+
 function verificar(){
+    var outputMedia = document.querySelector(".media"); 
     var nota1 = document.querySelector(".nota-1").value;
     var nota2 = document.querySelector(".nota-2").value;
     var nota3 = document.querySelector(".nota-3").value;
@@ -42,8 +63,7 @@ function verificar(){
         listaNum.push(parseFloat(lista[i]));
     }
     
-    console.log(lista)
-    console.log(listaNum)
+
     //SOMAR NOTAS 
     for(let i = 0; i < listaNum.length; i++){
         somarNotas += listaNum[i];
@@ -66,6 +86,7 @@ function verificar(){
 
 
 function situacao(media){
+    var outputSituacao = document.querySelector('.situacao')
     if(media < 5.0){
        outputSituacao.innerHTML = "REPROVADO"
        outputSituacao.classList.add("reprovado")
@@ -84,24 +105,6 @@ function situacao(media){
 }
 
 
-
-
-//ARROW FUNCTION - CRIAR ALUNO 
-const criarAluno = () => {
-    const item = document.createElement('tr');
-    item.classList.add("blinder_student");
-    item.innerHTML = `
-        <th id="ordenacao">${num++}</th>
-        <th scope="row"><input type="text" class="input"></th>
-        <th><input type="number" class="nota-1 input"></th>
-        <th><input type="number" class="nota-2 input"></th>
-        <th><input type="number" class="nota-3 input"></th>
-        <th><input type="number" class="nota-4 input"></th>
-        <th class="media">#</th>
-        <th class="situacao">#</th>
-    `
-    document.getElementById('binderBody').appendChild(item); 
-}
 
 
 
