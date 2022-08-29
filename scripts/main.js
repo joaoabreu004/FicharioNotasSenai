@@ -17,6 +17,10 @@ btnAdd.addEventListener('click', () => {
     criarAluno();
 })
 
+btnVerifica.addEventListener('click', () => {
+    verifica(); 
+})
+
 
 
 var lista = []
@@ -46,9 +50,7 @@ const criarAluno = () => {
 
 }
 
-
-
-function verificar(){
+const verifica = () => {
     var outputMedia = document.querySelector(".media"); 
     var nota1 = document.querySelector(".nota-1").value;
     var nota2 = document.querySelector(".nota-2").value;
@@ -82,6 +84,8 @@ function verificar(){
     listaNum.length = 0; 
     lista.length = 0 
 }
+
+
 
 
 
