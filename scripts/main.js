@@ -23,31 +23,33 @@ btnVerifica.addEventListener('click', () => {
 
 
 
-var lista = [];
-var listaNum = [];
-
-
 //ARROW FUNCTION - CRIAR ALUNO 
 const criarAluno = () => {
     const item = document.createElement('tr');
     item.classList.add("blinder_student");
     item.innerHTML = `
-        <th id="ordenacao">${num++}</th>
-        <th scope="row"><input type="text" class="input"></th>
-        <th><input type="number" class="nota-1 input"></th>
-        <th><input type="number" class="nota-2 input"></th>
-        <th><input type="number" class="nota-3 input"></th>
-        <th><input type="number" class="nota-4 input"></th>
-        <th class="media">#</th>
-        <th class="situacao">#</th>
+        <td><button><i class="fa-solid fa-square-xmark"></i></button></td>
+        <td id="ordenacao">${num++}</td>
+        <td scope="row"><input type="text" class="input"></td>
+        <td><input type="number" class="nota-1 input"></td>
+        <td><input type="number" class="nota-2 input"></td>
+        <td><input type="number" class="nota-3 input"></td>
+        <td><input type="number" class="nota-4 input"></td>
+        <td class="media">#</td>
+        <td class="situacao">#</td>
     `
     document.getElementById('binderBody').appendChild(item); 
     linhaAluno.push(item);
+    console.log(linhaAluno);
+
 }
 
+var lista = [];
+var listaNum = [];
 
 
 const verifica = () => {
+   
     var outputMedia = document.querySelector(".media"); 
     var nota1 = document.querySelector(".nota-1").value;
     var nota2 = document.querySelector(".nota-2").value;
@@ -101,7 +103,6 @@ function situacao(media){
         outputSituacao.classList.remove("recuperacao", "reprovado");
     }
 }
-
 
 
 
