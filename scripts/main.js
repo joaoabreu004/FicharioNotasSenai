@@ -1,16 +1,13 @@
 const btnAdd = document.querySelector('#addStudent');
 const btnVerifica = document.querySelector('#verify');
-
-
-var ordemNumerica = document.querySelector('#ordenacao')
-
-var linhaAluno = []
+var ordemNumerica = document.querySelector('#ordenacao');
+var linhaAluno = [];
 
 
 //VARIÁVEIS AUXILIARES
-var num = 1
-var somarNotas = 0 
-var media = 0 
+var num = 1;
+var somarNotas = 0; 
+var media = 0;
 
 
 btnAdd.addEventListener('click', () => {
@@ -18,14 +15,16 @@ btnAdd.addEventListener('click', () => {
 })
 
 btnVerifica.addEventListener('click', () => {
-    verifica(); 
+  linhaAluno.forEach(verifica);
 })
 
 
 
-var lista = []
-var listaNum = []
 
+
+
+var lista = [];
+var listaNum = [];
 
 
 //ARROW FUNCTION - CRIAR ALUNO 
@@ -43,12 +42,10 @@ const criarAluno = () => {
         <th class="situacao">#</th>
     `
     document.getElementById('binderBody').appendChild(item); 
-    linhaAluno.push(item)
-    console.log(linhaAluno)
-
-  
-
+    linhaAluno.push(item);
 }
+
+
 
 const verifica = () => {
     var outputMedia = document.querySelector(".media"); 
@@ -77,34 +74,31 @@ const verifica = () => {
     outputMedia.innerHTML = media;
 
     situacao(media);
+    
 
     //ZERANDO VARIÁVEIS
     media = 0; 
     somarNotas = 0; 
     listaNum.length = 0; 
-    lista.length = 0 
+    lista.length = 0;
 }
 
 
-
-
-
 function situacao(media){
-    var outputSituacao = document.querySelector('.situacao')
+    var outputSituacao = document.querySelector('.situacao');
     if(media < 5.0){
-       outputSituacao.innerHTML = "REPROVADO"
-       outputSituacao.classList.add("reprovado")
-       outputSituacao.classList.remove("recuperacao", "aprovado")
+       outputSituacao.innerHTML = "REPROVADO";
+       outputSituacao.classList.add("reprovado");
+       outputSituacao.classList.remove("recuperacao", "aprovado");
        
     }else if(media >= 5.0 && media < 8.0){
-        outputSituacao.innerHTML = "RECUPERAÇÃO"
-        outputSituacao.classList.add("recuperacao")
-        outputSituacao.classList.remove("reprovado", "aprovado")
+        outputSituacao.innerHTML = "RECUPERAÇÃO";
+        outputSituacao.classList.add("recuperacao");
+        outputSituacao.classList.remove("reprovado", "aprovado");
     } else if (media >= 8){
-        outputSituacao.innerHTML = "APROVADO"
-        outputSituacao.classList.add("aprovado")
-        outputSituacao.classList.remove("recuperacao", "reprovado")
-
+        outputSituacao.innerHTML = "APROVADO";
+        outputSituacao.classList.add("aprovado");
+        outputSituacao.classList.remove("recuperacao", "reprovado");
     }
 }
 
