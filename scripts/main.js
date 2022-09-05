@@ -1,11 +1,13 @@
 const btnAdd = document.querySelector('#addStudent');
 const btnVerifica = document.querySelector('#verify');
+const btnExluir = document.querySelector(".deletStudent");
+
 var ordemNumerica = document.querySelector('#ordenacao');
 var linhaAluno = [];
 
 
 //VARIÁVEIS AUXILIARES
-var num = 1;
+var id = 2;
 var somarNotas = 0; 
 var media = 0;
 
@@ -19,30 +21,40 @@ btnVerifica.addEventListener('click', () => {
 })
 
 
+function sayHello(){
+    console.log("Hello World");
+}
 
+
+btnExluir.addEventListener("click", () => {
+
+})
 
 
 
 //ARROW FUNCTION - CRIAR ALUNO 
 const criarAluno = () => {
+
     const item = document.createElement('tr');
     item.classList.add("blinder_student");
     item.innerHTML = `
-        <td><button><i class="fa-solid fa-square-xmark"></i></button></td>
-        <td id="ordenacao">${num++}</td>
-        <td scope="row"><input type="text" class="input"></td>
-        <td><input type="number" class="nota-1 input"></td>
-        <td><input type="number" class="nota-2 input"></td>
-        <td><input type="number" class="nota-3 input"></td>
-        <td><input type="number" class="nota-4 input"></td>
+        <td><button class="deletStudent"><i class="fa-solid fa-square-xmark"></i></button></td>
+        <td id="${id}-aluno">${id}</td>
+        <td scope="row"><input type="text"></td>
+        <td><input type="number" class="nota-1"></td>
+        <td><input type="number" class="nota-2"></td>
+        <td><input type="number" class="nota-3"></td>
+        <td><input type="number" class="nota-4"></td>
         <td class="media">#</td>
         <td class="situacao">#</td>
     `
-    document.getElementById('binderBody').appendChild(item); 
+    document.getElementById('binderBody').appendChild(item);
+    id++ 
     linhaAluno.push(item);
     console.log(linhaAluno);
-
 }
+
+
 
 var lista = [];
 var listaNum = [];
