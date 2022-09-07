@@ -7,7 +7,7 @@ var linhaAluno = [];
 
 
 //VARIÁVEIS AUXILIARES
-var id = 2;
+var id = 1;
 var somarNotas = 0; 
 var media = 0;
 
@@ -21,14 +21,6 @@ btnVerifica.addEventListener('click', () => {
 })
 
 
-function sayHello(){
-    console.log("Hello World");
-}
-
-
-btnExluir.addEventListener("click", () => {
-
-})
 
 
 
