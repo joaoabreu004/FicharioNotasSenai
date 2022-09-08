@@ -61,7 +61,7 @@ const criarAluno = () => {
         btn.addEventListener('click', () => {
             id--;
             btn.parentElement.remove(parent);
-            btn.next    
+            btn.parentNode.nextElementSibling;
         });  
     })
 
