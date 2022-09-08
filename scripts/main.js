@@ -19,13 +19,15 @@ var media = 0;
 var somarNotas = 0;
 var bancoDados = [];
 var id = 1;
-
-
+var btnExcluir = []; 
 
 
 btnAdd.addEventListener('click', () => {
     criarAluno();
+   
 });
+
+
 
 btnVerifica.addEventListener('click', () => {
     verifica();
@@ -33,13 +35,17 @@ btnVerifica.addEventListener('click', () => {
 
 
 
+
+
+
+
+
 //ARROW FUNCTION - CRIAR ALUNO 
 const criarAluno = () => {
-
     const item = document.createElement('tr');
     item.classList.add("blinder_student");
     item.innerHTML = `
-        <td><button class="deletStudent"><i class="fa-solid fa-square-xmark"></i></button></td>
+        <button class="deleteStudent"><i class="fa-solid fa-square-xmark"></i></button>
         <td id="${id}-aluno">${id}</td>
         <td scope="row"><input type="text" class="nome${id}"></td>
         <td><input type="number" class="nota${id}-1"></td>
@@ -50,15 +56,25 @@ const criarAluno = () => {
         <td class="situacao${id}">#</td>
     `
     document.getElementById('binderBody').appendChild(item);
-    id++
+    btnExcluir = document.querySelectorAll(".deleteStudent"); 
+    btnExcluir.forEach(btn => {
+        btn.addEventListener('click', () => {
+            id--;
+            btn.parentElement.remove(parent);
+            btn.next    
+        });  
+    })
+
+    id++;
 }
 
-var lista = [];
-var listaNum = [];
 
-var estudante
+var listaNum = [];
+var estudante; 
+
 const verifica = () => {
     for (let aluno = 1; aluno <= id; aluno++) {
+
         media = 0; 
         somarNotas = 0; 
         listaNum.length = 0; 
@@ -68,14 +84,6 @@ const verifica = () => {
         var nota3 = Number(document.querySelector(`.nota${aluno}-3`).value);
         var nota4 = Number(document.querySelector(`.nota${aluno}-4`).value);
         var nome = document.querySelector(`.nome${aluno}`).value;
-     
-
-
-        // estudante = new Aluno(nome, nota1, nota2, nota3, nota4 ,outputMedia); 
-
-        // bancoDados.push(estudante);
-        // console.log(bancoDados)
-
 
         listaNum.push(nota1, nota2, nota3, nota4);
 
@@ -106,12 +114,12 @@ const verifica = () => {
             outputSituacao.classList.remove("recuperacao", "reprovado");
         }
     }
-
-
 }
 
-// FUNCTION 
-function situacao(media) {
-  
-}
+
+
+
+
+
+
 
