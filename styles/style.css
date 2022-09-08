@@ -52,12 +52,15 @@ main {
 
 .aprovado {
   color: #7DCE13;
+  font-weight: bold;
 }
 
 .recuperacao {
-  color: #FFEA11;
+  color: #F7EC09;
+  font-weight: bold;
 }
 
 .reprovado {
-  color: #FF1E00;
+  color: #FF1700;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
