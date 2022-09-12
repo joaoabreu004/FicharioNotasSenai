@@ -1,32 +1,27 @@
-// class Aluno{
-//     constructor(nomeAluno, nota1, nota2, nota3, nota4, media){
-//         this.nomeAluno = nomeAluno, 
-//         this.nota1 = nota1, 
-//         this.nota2 = nota2, 
-//         this.nota3 = nota3, 
-//         this.nota4 = nota4,
-//         this.mediaAluno = media
-//     }
-// }
 
+//VARIÁVEIS GLOBAIS
 
 
 const btnAdd = document.querySelector('#addStudent');
 const btnVerifica = document.querySelector('#verify');
 
+
 var qtdNotas = 4;
 var media = 0;
 var somarNotas = 0;
 var bancoDados = [];
-var id = 1;
+var id = 0;
 var btnExcluir = []; 
+var listaNum = [];
+var estudante; 
+
+// ===========================================
 
 
+// EVENTOS COM CLICKS
 btnAdd.addEventListener('click', () => {
-    criarAluno();
-   
+    criarAluno(); 
 });
-
 
 
 btnVerifica.addEventListener('click', () => {
@@ -34,16 +29,18 @@ btnVerifica.addEventListener('click', () => {
 });
 
 
+// ===========================================
 
 
+//ARROW FUNCTIONS
 
-
-
-
-//ARROW FUNCTION - CRIAR ALUNO 
+//- CRIAR ALUNO 
 const criarAluno = () => {
     const item = document.createElement('tr');
     item.classList.add("blinder_student");
+   
+    id++
+
     item.innerHTML = `
         <button class="deleteStudent"><i class="fa-solid fa-square-xmark"></i></button>
         <td id="${id}-aluno">${id}</td>
@@ -55,23 +52,26 @@ const criarAluno = () => {
         <td class="media${id}">#</td>
         <td class="situacao${id}">#</td>
     `
+
     document.getElementById('binderBody').appendChild(item);
     btnExcluir = document.querySelectorAll(".deleteStudent"); 
     btnExcluir.forEach(btn => {
         btn.addEventListener('click', () => {
-            id--;
             btn.parentElement.remove(parent);
-            btn.parentNode.nextElementSibling;
+            if(id > 0){
+                id--
+            }
         });  
-    })
 
-    id++;
+       
+    })
+    
+
+
 }
 
 
-var listaNum = [];
-var estudante; 
-
+//ARROW FUNCTION - VERIFICAR SITUAÇÕES DOS ALUNOS
 const verifica = () => {
     for (let aluno = 1; aluno <= id; aluno++) {
 
