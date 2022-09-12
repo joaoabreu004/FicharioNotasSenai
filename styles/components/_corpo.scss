@@ -56,6 +56,13 @@ main{
     }
 }
 
+.deleteStudent{
+    border: none;
+    color: #fff;
+    &:hover{
+        color: #E64848;
+    }
+}
 
 //SITUAAÇÕES 
 

@@ -50,6 +50,14 @@ main {
   transition: 2ms;
 }
 
+.deleteStudent {
+  border: none;
+  color: #fff;
+}
+.deleteStudent:hover {
+  color: #E64848;
+}
+
 .aprovado {
   color: #7DCE13;
   font-weight: bold;
