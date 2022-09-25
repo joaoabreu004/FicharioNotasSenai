@@ -1,6 +1,13 @@
 
 //VARIÁVEIS GLOBAIS
 
+const notaGeral_Tela = document.querySelector('#notasGerais');
+console.log(notaGeral_Tela)
+
+const notaSala = Number(notaGeral_Tela.innerHTML)
+console.log(notaSala)
+
+
 
 const btnAdd = document.querySelector('#addStudent');
 const btnVerifica = document.querySelector('#verify');
@@ -14,6 +21,7 @@ var id = 0;
 var btnExcluir = []; 
 var listaNum = [];
 var estudante; 
+var somaNotasGerais = 0;
 
 // ===========================================
 
@@ -73,6 +81,7 @@ const criarAluno = () => {
 
 //ARROW FUNCTION - VERIFICAR SITUAÇÕES DOS ALUNOS
 const verifica = () => {
+
     for (let aluno = 1; aluno <= id; aluno++) {
 
         media = 0; 
@@ -87,7 +96,6 @@ const verifica = () => {
 
         listaNum.push(nota1, nota2, nota3, nota4);
 
-
         //SOMAR NOTAS 
         for (let i = 0; i < listaNum.length; i++) {
             somarNotas += listaNum[i];
@@ -95,8 +103,8 @@ const verifica = () => {
 
         // MÉDIA
         media = somarNotas / 4;
-
-        outputMedia.innerHTML = media;
+        var notaFinal = media.toFixed(2)
+        outputMedia.innerHTML = notaFinal;
 
         var outputSituacao = document.querySelector(`.situacao${aluno}`);
         if (media < 5.0) {
@@ -113,13 +121,17 @@ const verifica = () => {
             outputSituacao.classList.add("aprovado");
             outputSituacao.classList.remove("recuperacao", "reprovado");
         }
+
+
     }
+
+
+    
 }
 
 
 
 
 
-
-
+// CALCULAR MÉDIA DA SALA: 
 

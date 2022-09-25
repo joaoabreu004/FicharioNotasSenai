@@ -71,4 +71,10 @@ main {
 .reprovado {
   color: #FF1700;
   font-weight: bold;
+}
+
+.notasGerais {
+  border: 2px solid #000;
+  background: #FF1700;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
