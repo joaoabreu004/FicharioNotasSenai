@@ -70,7 +70,13 @@ const criarAluno = () => {
             if(id > 0){
                 id--
             }
+
+            
+
+
+
         });  
+
 
        
     })
@@ -96,7 +102,13 @@ const verifica = () => {
         var nota4 = Number(document.querySelector(`.nota${aluno}-4`).value);
         var nome = document.querySelector(`.nome${aluno}`).value;
 
+
+        
+
+
         listaNum.push(nota1, nota2, nota3, nota4);
+
+        
 
         //SOMAR NOTAS 
         for (let i = 0; i < listaNum.length; i++) {
@@ -127,7 +139,7 @@ const verifica = () => {
     }
 
 
-    arrayTeste = document.querySelectorAll('.arrayNotas');
+    arrayTeste  = document.querySelectorAll('.arrayNotas');
 
     var todasNotas = 0;
 
@@ -151,11 +163,9 @@ const verifica = () => {
 
 
 
-
-
-
 // CALCULAR MÉDIA DA SALA: 
 function mediaSala(somaNotas, qtdMediasObtidas){
     var media = somaNotas / qtdMediasObtidas;
     return media;
 }
+

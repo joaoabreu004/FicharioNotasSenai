@@ -73,13 +73,19 @@ main {
   font-weight: bold;
 }
 
+.section_mediaGeral {
+  display: flex;
+}
+
 .notasGerais {
+  justify-content: end;
   text-align: center;
   margin-top: 2em;
   border: 1px solid #000;
   color: #fff;
   border-radius: 5px 5px;
   width: 300px;
+  left: 0;
 }
 
 .notasGerais h2 {
