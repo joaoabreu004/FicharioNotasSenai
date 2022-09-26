@@ -22,6 +22,7 @@ var btnExcluir = [];
 var listaNum = [];
 var estudante; 
 var somaNotasGerais = 0;
+var arrayTeste = [];
 
 // ===========================================
 
@@ -57,7 +58,7 @@ const criarAluno = () => {
         <td><input type="number" class="nota${id}-2"></td>
         <td><input type="number" class="nota${id}-3"></td>
         <td><input type="number" class="nota${id}-4"></td>
-        <td class="media${id}">#</td>
+        <td class="media${id} arrayNotas">0.0</td>
         <td class="situacao${id}">#</td>
     `
 
@@ -73,9 +74,10 @@ const criarAluno = () => {
 
        
     })
+
+  
     
-
-
+   
 }
 
 
@@ -122,16 +124,38 @@ const verifica = () => {
             outputSituacao.classList.remove("recuperacao", "reprovado");
         }
 
-
     }
 
 
+    arrayTeste = document.querySelectorAll('.arrayNotas');
+
+    var todasNotas = 0;
+
+
+    console.log(arrayTeste);
+   
+    var list = []
+    arrayTeste.forEach(it => {
+        list.push(Number(it.innerHTML)); 
+    });
+
+    list.forEach(nota => {
+       todasNotas += nota;
+    })
+
     
+    var mediaAlunos = mediaSala(todasNotas, arrayTeste.length);
+    notaGeral_Tela.innerHTML = mediaAlunos.toFixed(2);
+
 }
 
 
 
 
 
-// CALCULAR MÉDIA DA SALA: 
 
+// CALCULAR MÉDIA DA SALA: 
+function mediaSala(somaNotas, qtdMediasObtidas){
+    var media = somaNotas / qtdMediasObtidas;
+    return media;
+}

@@ -85,8 +85,28 @@ main{
 
 //NOTAS EM GERAL
 
+
+
 .notasGerais{
-    border: 2px solid #000;
+    text-align: center;
+    margin-top: 2em;
+    border: 1px solid #000;
+    color: #fff;
+    border-radius: 5px 5px ;
+    width: 300px;
+}
+
+.notasGerais h2{
+    color: #000;
+}
+
+.notasGerais_cabecalho{
     background: #FF1700;
+    border-radius: 5px 5px 0px 0px;
+    width: 300px;  
+}
+
+.notasGerais_cabecalho p{
     color: #fff;
 }
+
